@@ -12,7 +12,8 @@
 <body>
 
 <header>
-    <div class="jumbotron">
+    <div class="jumbotron col-12 justify-content-center">
+      <!--<div class="col-12 justify-content-center "> -->
         <h1 class="display-4">Welcome to Hoggy Hoggy Warts!</h1>
         <p class="lead">Lorem ipsum dolor sit amet, adipiscing elit. <br>
                         Mauris mi dolor, rutrum vel dictum ac, lobortis vel nibh. <br>
@@ -22,26 +23,32 @@
         <p class="lead">
           <a class="btn btn-primary btn-lg" href="#" role="button">Let's Get Sorting!</a>
         </p>
-      </div>
-
-    <div id="pushFormToHere">
 
     </div>
     
-      <form>
-        <div class="form-group">
-            <h3>Enter First Year's Name!</h3>
-          <label for="studentFieldLabel">Student</label>
-          <input type="studentNameField" class="form-control" placeholder="Enter student name here!">
-        </div>
-        <button type="Sort!" class="btn btn-primary">Submit</button>
-      </form>
 
+    <div class="col-12  d-flex justify-content-center ">
+      <form class="form-inline">
+        <label class="sr-only" for="inlineFormInputName2">Student Name: </label>
+        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Carry Dotter">
+      
+        <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+          </label>
+
+        </div>
+      
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+      </form>
+    </div> 
 
 
 </header>    
 
-    <script src="main.js"></script>
+    
 
+
+    <script src="main.js"></script>
 </body>
 </html>
