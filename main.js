@@ -3,21 +3,19 @@ console.log("Your JavaScript is connected!")
 
 const students = [
     {
-        name: "Todd Spainhour",
-        house: "Magic House",
+        name: "",
+        house: "",
 
-    },
-
-    {
-        name: "Jimmy Bobby",
-        house: "Abracabra House"
-    },
-
-    {
-        name: "Susan McWitch",
-        house: "Bright House"
     }
 ]
+
+
+
+
+
+
+
+
 
 
 const makeFormAppear = () => {
@@ -28,11 +26,44 @@ const makeFormAppear = () => {
 }
 
 
+
+
+
+
+
+
+
+
+//send info from student name button to arrary
+const studentNameSubmission = () =>{
+    //const studentNameEnteredByUser = ''
+    //document.getElementById('inlineFormInputName2').value;
+    console.log("this is your sort! button")
+}
+
+
+
+
+
+
+
+
+
+
+
 //print to DOM functionality
 const printToDom = (divId, textToPrint) => {
     const selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = textToPrint;
 };
+
+
+
+
+
+
+
+
 
 
 const buildFormCard = () => {
@@ -57,15 +88,30 @@ printToDom('printCardsHere', domString)
 
 
 
+
+
+
+
+
+
+
 //Click event that make stuff appear
 const events = () => {
-    document.getElementById('clickMeToMakeFormAppear').addEventListener('click', makeFormAppear)
+    document.getElementById('clickMeToMakeFormAppear').addEventListener('click', makeFormAppear);
+    document.getElementById('inlineFormInputName2').addEventListener('click', studentNameSubmission); //put a id on it not a class
 }
+
+
+
+
+
+
+
 
 
 const init = () => {
 events()
-buildFormCard()
+//buildFormCard()   you need to fire this off when the user submits name
 }
 
 init()
