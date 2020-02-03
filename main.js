@@ -2,11 +2,7 @@ console.log("Your JavaScript is connected!")
 
 
 const students = [
-    {
-        name: "",
-        house: "",
-
-    }
+    
 ]
 
 
@@ -35,10 +31,16 @@ const makeFormAppear = () => {
 
 
 //send info from student name button to arrary
+//take info from input field and push it to the students array
+
+
 const studentNameSubmission = () =>{
-    //const studentNameEnteredByUser = ''
-    //document.getElementById('inlineFormInputName2').value;
-    console.log("this is your sort! button")
+    //console.log("this is your sort! button")
+    const studentNameEnteredByUser = document.getElementById('inputAreaForUsertoEnterName').value;
+    console.log("You entered" + studentNameEnteredByUser);
+    students.push(studentNameEnteredByUser);
+    buildFormCard()
+    
 }
 
 
@@ -73,7 +75,7 @@ const buildFormCard = () => {
         domString += `<div class="printCardsHere" style="width: 18rem;">`
             domString += `<div id=".bg-secondary">` //make sure this is correct
                 domString +=  `<div class="card-body">`
-                    domString += `<h5 class="card-title">${students[i].name}</h5>`
+                    domString += `<h5 class="card-title">${`Name: `}${students[i]}</h5>`
                     domString += `<p class="card-text">Randomly Selected House</p>`
                     domString +=`<a href="#" class="btn btn-primary">Expell</a>`
                 domString += `</div>`  
@@ -98,7 +100,7 @@ printToDom('printCardsHere', domString)
 //Click event that make stuff appear
 const events = () => {
     document.getElementById('clickMeToMakeFormAppear').addEventListener('click', makeFormAppear);
-    document.getElementById('inlineFormInputName2').addEventListener('click', studentNameSubmission); //put a id on it not a class
+    document.getElementById('submitButtonForUserEnteredName').addEventListener('click', studentNameSubmission); //put a id on it not a class
 }
 
 
@@ -111,7 +113,7 @@ const events = () => {
 
 const init = () => {
 events()
-//buildFormCard()   you need to fire this off when the user submits name
+buildFormCard()   //you need to fire this off when the user submits name
 }
 
 init()
