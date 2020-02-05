@@ -24,7 +24,11 @@ const makeFormAppear = () => {
 
 
 
+const studentHouses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
 
+
+
+const randomHouse = studentHouses [Math.floor(Math.random() * studentHouses.length)];
 
 
 
@@ -34,19 +38,42 @@ const makeFormAppear = () => {
 //take info from input field and push it to the students array
 
 
+/*
 const studentNameSubmission = () =>{
     //console.log("this is your sort! button")
     const studentNameEnteredByUser = document.getElementById('inputAreaForUsertoEnterName').value;
-    console.log("You entered" + studentNameEnteredByUser);
+    console.log("You entered " + studentNameEnteredByUser);
     students.push(studentNameEnteredByUser);
+    studentHouses.push(randomHouse);
     buildFormCard()
-    
+    //printToDom() 
+}
+*/
+
+
+//let's try this?
+
+const studentNameSubmission = () =>{
+    //console.log("this is your sort! button")
+    const studentNameEnteredByUser = document.getElementById('inputAreaForUsertoEnterName').value;
+    console.log("You entered " + studentNameEnteredByUser);
+    students.push(studentNameEnteredByUser);
+    studentNameEnteredByUser = students.id
+    //studentHouses.push(randomHouse);
+    buildFormCard()
+    //printToDom() 
 }
 
 
 
 
 
+
+
+
+
+
+console.log("This is your randomly selected house: " + randomHouse)
 
 
 
@@ -64,6 +91,10 @@ const printToDom = (divId, textToPrint) => {
 
 
 
+//inside the sort button function it should create a new const that builds the structure
+
+
+
 
 
 
@@ -76,7 +107,7 @@ const buildFormCard = () => {
             domString += `<div id=".bg-secondary">` //make sure this is correct
                 domString +=  `<div class="card-body">`
                     domString += `<h5 class="card-title">${`Name: `}${students[i]}</h5>`
-                    domString += `<p class="card-text">Randomly Selected House</p>`
+                    domString += `<p class="card-text">${`House: `}${randomHouse}</p>`
                     domString +=`<a href="#" class="btn btn-primary">Expell</a>`
                 domString += `</div>`  
             domString += `</div>`
