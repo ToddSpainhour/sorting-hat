@@ -7,16 +7,20 @@ const students = [
 
 
 
-
-
 const studentHouses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
 
 
 
 
-let randomHouse = studentHouses [Math.floor(Math.random() * studentHouses.length)];
+let randomHouseGenerator = () => {
+    for ( let i = 0; i < studentHouses.length; i++) {
+    return Math.floor(Math.random(studentHouses[i].length));
+}
+}
 
+const yourHouseWillBe = randomHouseGenerator(studentHouses)
 
+//console.log(randomHouseGenerator(studentHouses))
 
 
 
@@ -34,7 +38,6 @@ const makeFormAppear = () => {
 
 
 
-//send info from student name button to arrary
 //take info from input field and push it to the students array
 
 
@@ -42,46 +45,11 @@ const makeFormAppear = () => {
 const studentNameSubmission = () =>{
     
     let studentNameEnteredByUser = document.getElementById('inputAreaForUsertoEnterName').value;
-    students.push({name: studentNameEnteredByUser, house: randomHouse}) //I wasn't including the object brackets {} before...
-    //students.push({House: randomHouse})
-    //studentHouses.push(randomHouse);
+    students.push({name: studentNameEnteredByUser, house: studentHouses}); //I wasn't including the object brackets {} before...
     buildFormCard()
     
 }
 
-
-
-/*
-john's code--->  const newStudent = students.push({id: idCounter(), name: formInput, house: house[randomArrElement(house)]});
-*/
-
-
-//console.log(studentNameSubmission())
-
-//the block below wasn't working...
-/*
-const studentNameSubmission = () =>{
-    //console.log("You just clicked your sort! button")
-    let studentNameEnteredByUser = document.getElementById('inputAreaForUsertoEnterName').value;
-    students.name = studentNameEnteredByUser.push
-
-    //console.log("You entered " + studentNameEnteredByUser);
-    //studentNameEnteredByUser.push(students);
-    //studentHouses.push(randomHouse);
-    buildFormCard()
-    //printToDom() 
-}
-
-*/
-
-
-
-
-
-
-
-
-//console.log("This is your randomly selected house: " + randomHouse)
 
 
 
@@ -100,9 +68,6 @@ const printToDom = (divId, textToPrint) => {
 
 
 //inside the sort button function it should create a new const that builds the structure
-
-
-
 
 
 
@@ -132,19 +97,11 @@ printToDom('printCardsHere', domString)
 
 
 
-
-
-
-
 //Click event that make stuff appear
 const events = () => {
     document.getElementById('clickMeToMakeFormAppear').addEventListener('click', makeFormAppear);
     document.getElementById('submitButtonForUserEnteredName').addEventListener('click', studentNameSubmission); //put a id on it not a class
 }
-
-
-
-
 
 
 
