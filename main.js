@@ -5,22 +5,15 @@ const students = [
 ]
 
 
-
-
 const studentHouses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
 
 
+//let randomHouse = studentHouses[Math.floor(Math.random()*studentHouses.length)];
 
-
-let randomHouseGenerator = () => {
-    for ( let i = 0; i < studentHouses.length; i++) {
-    return Math.floor(Math.random(studentHouses[i].length));
-}
+let randomHouse = () => {
+    return studentHouses[Math.floor(Math.random()*studentHouses.length)]
 }
 
-const yourHouseWillBe = randomHouseGenerator(studentHouses)
-
-//console.log(randomHouseGenerator(studentHouses))
 
 
 
@@ -33,25 +26,16 @@ const makeFormAppear = () => {
 
 
 
-
-
-
-
-
 //take info from input field and push it to the students array
-
-
 
 const studentNameSubmission = () =>{
     
     let studentNameEnteredByUser = document.getElementById('inputAreaForUsertoEnterName').value;
-    students.push({name: studentNameEnteredByUser, house: studentHouses}); //I wasn't including the object brackets {} before...
+    students.push({name: studentNameEnteredByUser, house: randomHouse()}); //I wasn't including the object brackets {} before... also adding the () after the newly created randomHouse function got it working
     buildFormCard()
+    init() //should this be here?
     
 }
-
-
-
 
 
 
@@ -64,14 +48,6 @@ const printToDom = (divId, textToPrint) => {
 
 
 
-
-
-
-//inside the sort button function it should create a new const that builds the structure
-
-
-
-
 const buildFormCard = () => {
     let domString = '';
     for (i = 0; i < students.length; i++) {
@@ -80,7 +56,7 @@ const buildFormCard = () => {
             domString += `<div id=".bg-secondary">` //make sure this is correct
                 domString +=  `<div class="card-body">`
                     domString += `<h5 class="card-title">${`Name: `}${students[i].name}</h5>`
-                    //domString += `<p class="card-text">${`House: `}${randomHouse}</p>`
+                    domString += `<p class="card-text">${`House: `}${students[i].house}</p>`
                     domString +=`<a href="#" class="btn btn-primary">Expell</a>`
                 domString += `</div>`  
             domString += `</div>`
@@ -97,7 +73,7 @@ printToDom('printCardsHere', domString)
 
 
 
-//Click event that make stuff appear
+//Click events that make stuff appear
 const events = () => {
     document.getElementById('clickMeToMakeFormAppear').addEventListener('click', makeFormAppear);
     document.getElementById('submitButtonForUserEnteredName').addEventListener('click', studentNameSubmission); //put a id on it not a class
