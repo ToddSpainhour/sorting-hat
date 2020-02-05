@@ -14,25 +14,18 @@ const studentHouses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
 
 
 
-const randomHouse = studentHouses [Math.floor(Math.random() * studentHouses.length)];
+let randomHouse = studentHouses [Math.floor(Math.random() * studentHouses.length)];
 
 
 
 
 
 
-
-
-
-
-
-
+//this function is used for the click event to make the form appear
 const makeFormAppear = () => {
     letsGetSortingForm.classList.remove('invisible')
     letsGetSortingForm.classList.add('visible')
 }
-
-
 
 
 
@@ -49,7 +42,8 @@ const makeFormAppear = () => {
 const studentNameSubmission = () =>{
     
     let studentNameEnteredByUser = document.getElementById('inputAreaForUsertoEnterName').value;
-    students.push({name: studentNameEnteredByUser}) //I wasn't including the object brackets {} before...
+    students.push({name: studentNameEnteredByUser, house: randomHouse}) //I wasn't including the object brackets {} before...
+    //students.push({House: randomHouse})
     //studentHouses.push(randomHouse);
     buildFormCard()
     
@@ -121,7 +115,7 @@ const buildFormCard = () => {
             domString += `<div id=".bg-secondary">` //make sure this is correct
                 domString +=  `<div class="card-body">`
                     domString += `<h5 class="card-title">${`Name: `}${students[i].name}</h5>`
-                    domString += `<p class="card-text">${`House: `}${randomHouse}</p>`
+                    //domString += `<p class="card-text">${`House: `}${randomHouse}</p>`
                     domString +=`<a href="#" class="btn btn-primary">Expell</a>`
                 domString += `</div>`  
             domString += `</div>`
