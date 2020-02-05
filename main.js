@@ -1,4 +1,3 @@
-console.log("Your JavaScript is connected!")
 
 
 const students = [
@@ -10,21 +9,8 @@ const students = [
 
 
 
-
-
-
-
-const makeFormAppear = () => {
-    const visibleForm = document.getElementById('letsGetSortingForm')
-    letsGetSortingForm.classList.remove('invisible')
-    letsGetSortingForm.classList.add('visible')
-    console.log("you Let's Get Sorting eventlistener is working")
-}
-
-
-
-
 const studentHouses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
+
 
 
 
@@ -34,36 +20,65 @@ const randomHouse = studentHouses [Math.floor(Math.random() * studentHouses.leng
 
 
 
+
+
+
+
+
+
+
+const makeFormAppear = () => {
+    letsGetSortingForm.classList.remove('invisible')
+    letsGetSortingForm.classList.add('visible')
+}
+
+
+
+
+
+
+
+
+
+
 //send info from student name button to arrary
 //take info from input field and push it to the students array
 
 
-/*
+
 const studentNameSubmission = () =>{
-    //console.log("this is your sort! button")
-    const studentNameEnteredByUser = document.getElementById('inputAreaForUsertoEnterName').value;
-    console.log("You entered " + studentNameEnteredByUser);
-    students.push(studentNameEnteredByUser);
-    studentHouses.push(randomHouse);
+    
+    let studentNameEnteredByUser = document.getElementById('inputAreaForUsertoEnterName').value;
+    students.push({name: studentNameEnteredByUser}) //I wasn't including the object brackets {} before...
+    //studentHouses.push(randomHouse);
     buildFormCard()
-    //printToDom() 
+    
 }
+
+
+
+/*
+john's code--->  const newStudent = students.push({id: idCounter(), name: formInput, house: house[randomArrElement(house)]});
 */
 
 
-//let's try this?
+//console.log(studentNameSubmission())
 
+//the block below wasn't working...
+/*
 const studentNameSubmission = () =>{
-    //console.log("this is your sort! button")
-    const studentNameEnteredByUser = document.getElementById('inputAreaForUsertoEnterName').value;
-    console.log("You entered " + studentNameEnteredByUser);
-    students.push(studentNameEnteredByUser);
-    studentNameEnteredByUser = students.id
+    //console.log("You just clicked your sort! button")
+    let studentNameEnteredByUser = document.getElementById('inputAreaForUsertoEnterName').value;
+    students.name = studentNameEnteredByUser.push
+
+    //console.log("You entered " + studentNameEnteredByUser);
+    //studentNameEnteredByUser.push(students);
     //studentHouses.push(randomHouse);
     buildFormCard()
     //printToDom() 
 }
 
+*/
 
 
 
@@ -72,8 +87,7 @@ const studentNameSubmission = () =>{
 
 
 
-
-console.log("This is your randomly selected house: " + randomHouse)
+//console.log("This is your randomly selected house: " + randomHouse)
 
 
 
@@ -106,7 +120,7 @@ const buildFormCard = () => {
         domString += `<div class="printCardsHere" style="width: 18rem;">`
             domString += `<div id=".bg-secondary">` //make sure this is correct
                 domString +=  `<div class="card-body">`
-                    domString += `<h5 class="card-title">${`Name: `}${students[i]}</h5>`
+                    domString += `<h5 class="card-title">${`Name: `}${students[i].name}</h5>`
                     domString += `<p class="card-text">${`House: `}${randomHouse}</p>`
                     domString +=`<a href="#" class="btn btn-primary">Expell</a>`
                 domString += `</div>`  
@@ -148,3 +162,4 @@ buildFormCard()   //you need to fire this off when the user submits name
 }
 
 init()
+
