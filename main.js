@@ -1,5 +1,8 @@
 
-
+//todo list
+//create a way to assign a unique ID to each card
+//expell button
+//bootatrap
 const students = [
     
 ]
