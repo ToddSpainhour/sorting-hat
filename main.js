@@ -41,15 +41,9 @@ const studentNameSubmission = () =>{
 }
 
 
-//id counter that issues unique ID to each card when created
-//let's display the date.now info in the card to confirm it's working
-
-//let uniqueIdNumber = Date.getUTCMilliseconds();
-
-
+//creates unique ID number to add to each card
 let uniqueIdNumber = () => {
     return Date.now();
-    //return "is this working?"
 }
 
 
@@ -75,19 +69,24 @@ const buildFormCard = () => {
                     domString += `<h5 class="card-title">${`Name: `}${students[i].name}</h5>`
                     domString += `<p class="card-text">${`House: `}${students[i].house}</p>`
                     domString += `<p class="card-text">${`Unique ID: `}${students[i].IdNumber}</p>`
-                    domString +=`<a href="#" class="btn btn-primary">Expell</a>`
+                    domString +=`<button id="expellButton" class="expell btn btn-primary">Expell${students[i].IdNumber}</button>`
                 domString += `</div>`  
             domString += `</div>`
         domString += `</div>`
 
-
+//`<button id="${arr[i].id}" type="button" class="expel-button btn btn-primary">Expel</button>`
 printToDom('printCardsHere', domString)
 
 }
 }
 
-
-
+//i need to create a event listener for the expell button that summons a function that uses splice to get rid of only that card. Then reprint.
+const expellStudent = () => {
+    
+    console.log("This is your expell button");
+    buildFormCard() 
+    init()
+};
 
 
 
@@ -95,6 +94,7 @@ printToDom('printCardsHere', domString)
 const events = () => {
     document.getElementById('clickMeToMakeFormAppear').addEventListener('click', makeFormAppear);
     document.getElementById('submitButtonForUserEnteredName').addEventListener('click', studentNameSubmission); //put a id on it not a class
+    //document.getElementById('expellButton').addEventListener('click', expellStudent);
 }
 
 
