@@ -63,16 +63,18 @@ const buildFormCard = () => {
     let domString = '';
     for (i = 0; i < students.length; i++) {
 
-        domString += `<div class="printCardsHere" style="width: 18rem;">`
-            domString += `<div id=".bg-secondary">` //make sure this is correct
-                domString +=  `<div class="card-body">`
+    
+        
+            domString +=  `<div class="card-body col-sm-4">`
                     domString += `<h5 class="card-title">${`Name: `}${students[i].name}</h5>`
                     domString += `<p class="card-text">${`House: `}${students[i].house}</p>`
                     domString += `<p class="card-text">${`Unique ID: `}${students[i].IdNumber}</p>`
                     domString +=`<button id="expellButton" class="expell btn btn-primary">Expell${students[i].IdNumber}</button>`
-                domString += `</div>`  
-            domString += `</div>`
-        domString += `</div>`
+            domString += `</div>`  
+            
+        
+      
+
 
 //`<button id="${arr[i].id}" type="button" class="expel-button btn btn-primary">Expel</button>`
 printToDom('printCardsHere', domString)
