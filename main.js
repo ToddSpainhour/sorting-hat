@@ -34,11 +34,25 @@ const makeFormAppear = () => {
 const studentNameSubmission = () =>{
     
     let studentNameEnteredByUser = document.getElementById('inputAreaForUsertoEnterName').value;
-    students.push({name: studentNameEnteredByUser, house: randomHouse()}); //I wasn't including the object brackets {} before... also adding the () after the newly created randomHouse function got it working
+    students.push({name: studentNameEnteredByUser, house: randomHouse(), IdNumber: uniqueIdNumber()}); //I wasn't including the object brackets {} before... also adding the () after the newly created randomHouse function got it working
     buildFormCard()
     init() //should this be here?
     
 }
+
+
+//id counter that issues unique ID to each card when created
+//let's display the date.now info in the card to confirm it's working
+
+//let uniqueIdNumber = Date.getUTCMilliseconds();
+
+
+let uniqueIdNumber = () => {
+    return Date.now();
+    //return "is this working?"
+}
+
+
 
 
 
@@ -60,6 +74,7 @@ const buildFormCard = () => {
                 domString +=  `<div class="card-body">`
                     domString += `<h5 class="card-title">${`Name: `}${students[i].name}</h5>`
                     domString += `<p class="card-text">${`House: `}${students[i].house}</p>`
+                    domString += `<p class="card-text">${`Unique ID: `}${students[i].IdNumber}</p>`
                     domString +=`<a href="#" class="btn btn-primary">Expell</a>`
                 domString += `</div>`  
             domString += `</div>`
