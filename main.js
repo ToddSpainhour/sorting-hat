@@ -65,7 +65,7 @@ const buildFormCard = () => {
 
     
         
-            domString +=  `<div class="card-body col-sm-4">`
+            domString +=  `<div class="card-body col-sm-3 bg-light rounded-lg m-1">`
                     domString += `<h5 class="card-title">${`Name: `}${students[i].name}</h5>`
                     domString += `<p class="card-text">${`House: `}${students[i].house}</p>`
                     domString += `<p class="card-text">${`Unique ID: `}${students[i].IdNumber}</p>`
