@@ -28,21 +28,27 @@
       </div>
     </div>  
       <div id="letsGetSortingForm" class="invisible">
-        <form class="form-inline">
+        <div class="container">
+          <div class="row">
+            <div class="mx-auto">
+                <form class="form-inline mx-auto">
+                    
+                      <label class="sr-only" for="inlineFormInputName2">Name</label>
+                  
+                      <input id="inputAreaForUsertoEnterName" type="text" placeholder="Enter Student Name Here"> <!-- removed this id because it was the same as below-->
 
-              <label class="sr-only" for="inlineFormInputName2">Name</label>
-
-              <input id="inputAreaForUsertoEnterName" type="text" placeholder="Enter Student Name Here"> <!-- removed this id because it was the same as below-->
-
-              <button type="submit" id="submitButtonForUserEnteredName" class="btn btn-primary mb-2">Sort!</button>
-        </form>    
+                      <button type="submit" id="submitButtonForUserEnteredName" class="btn btn-primary mb-2">Sort!</button>
+                  
+                </form> 
+          </div>   
       </div>
+    </div>
 
   </header>    
 
   <main>
     <div class="container">
-      <div id="printCardsHere" class="row">
+      <div id="printCardsHere" class="row d-flex justify-content-start">
 
       </div>
     </div>
@@ -55,3 +61,4 @@
   <script src="main.js"></script>
 </body>
 </html>
+
