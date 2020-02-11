@@ -69,14 +69,15 @@ const buildFormCard = () => {
                     domString += `<h5 class="card-title text-center">${`Name: `}${students[i].name}</h5>`
                     domString += `<p class="card-text text-center">${`House: `}${students[i].house}</p>`
                     domString += `<p class="card-text text-center">${`Unique ID: `}${students[i].IdNumber}</p>`
-                    domString +=`<button id="expellButton" class="expell btn btn-primary">Expell${students[i].IdNumber}</button>`
+                    domString +=`<button id="${students[i].IdNumber}" class="expell btn btn-primary">Expell</button>`
             domString += `</div>`  
             
         
-      
+    
+//`<button id="${students[i].IdNumber}" type="button" class="expel-button btn btn-primary">Expel</button>`
 
 
-//`<button id="${arr[i].id}" type="button" class="expel-button btn btn-primary">Expel</button>`
+
 printToDom('printCardsHere', domString)
 
 }
@@ -96,7 +97,7 @@ const expellStudent = () => {
 const events = () => {
     document.getElementById('clickMeToMakeFormAppear').addEventListener('click', makeFormAppear);
     document.getElementById('submitButtonForUserEnteredName').addEventListener('click', studentNameSubmission); //put a id on it not a class
-    //document.getElementById('expellButton').addEventListener('click', expellStudent);
+    document.getElementById('${students[i].IdNumber}').addEventListener('click', expellStudent);
 }
 
 
