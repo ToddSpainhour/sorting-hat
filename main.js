@@ -36,7 +36,7 @@ const studentNameSubmission = () =>{
     let studentNameEnteredByUser = document.getElementById('inputAreaForUsertoEnterName').value;
     students.push({name: studentNameEnteredByUser, house: randomHouse(), IdNumber: uniqueIdNumber()}); //I wasn't including the object brackets {} before... also adding the () after the newly created randomHouse function got it working
     buildFormCard()
-    init() //should this be here?
+    //init() //should this be here?
     
 }
 
@@ -83,13 +83,32 @@ printToDom('printCardsHere', domString)
 }
 }
 
+
+const expellButton = document.getElementById('${students[i].IdNumber}');
+
+
+
 //i need to create a event listener for the expell button that summons a function that uses splice to get rid of only that card. Then reprint.
 const expellStudent = () => {
     
-    console.log("This is your expell button");
+    if(e.target.id === students[i].IdNumber){
+        students.splice(i, 1)
+        return console.log("This is your expell button")
+    }
+    ;
     buildFormCard() 
-    init()
+    //init()
 };
+
+
+
+
+
+const madeUpThing = () => {
+    console.log("if you see this you expell button event listener is working.")
+}
+
+
 
 
 
@@ -97,7 +116,7 @@ const expellStudent = () => {
 const events = () => {
     document.getElementById('clickMeToMakeFormAppear').addEventListener('click', makeFormAppear);
     document.getElementById('submitButtonForUserEnteredName').addEventListener('click', studentNameSubmission); //put a id on it not a class
-    document.getElementById('${students[i].IdNumber}').addEventListener('click', expellStudent);
+    document.getElementsById(`this.IdNumber`).addEventListener('click', madeUpThing);
 }
 
 
